@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Formulário para Nova Categoria{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block categories_form %}
+<main>
+  <h1>Formulário para Nova Categoria</h1>
+  <form method="post" action="{% url 'categories-form' %}">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Salvar</button>
+  </form>
+</main>
+{% endblock %}
